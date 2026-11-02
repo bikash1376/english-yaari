@@ -10,8 +10,17 @@ const required = (key: string): string => {
   return value;
 };
 
+const validTimezone = (timezone: string): string => {
+  try {
+    new Intl.DateTimeFormat("en-US", { timeZone: timezone });
+    return timezone;
+  } catch {
+    throw new Error(`Invalid TIMEZONE: ${timezone}`);
+  }
+};
+
 export const env = {
   port: Number(process.env.PORT) || 3000,
   mongodbUri: required("MONGODB_URI"),
-  timezone: process.env.TIMEZONE || "UTC",
+  timezone: validTimezone(process.env.TIMEZONE || "UTC"),
 };
