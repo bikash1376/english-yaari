@@ -43,6 +43,14 @@ npm start
 
 Health check: `GET http://localhost:3000/health`
 
+### Troubleshooting
+
+If startup fails with `querySrv ECONNREFUSED`, your DNS resolver is blocking the SRV lookup that `mongodb+srv://` strings need. Use the standard connection string instead. In Atlas, open Connect, then Drivers, and pick the older driver version to get it. It looks like:
+
+```
+mongodb://<user>:<password>@host1:27017,host2:27017,host3:27017/english-yaari?tls=true&authSource=admin&replicaSet=<replicaSetName>
+```
+
 ## Project Structure
 
 ```
