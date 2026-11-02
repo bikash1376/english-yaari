@@ -186,3 +186,13 @@ The collection is at `postman/english-yaari.postman_collection.json`.
 - Bruno: Import Collection, choose Postman Collection, then select the file.
 
 Set the `baseUrl` collection variable if the server is not on `http://localhost:3000`, then run the requests from top to bottom. Each request saves the ids it creates (`userId`, `teacherId`, `sessionId`, `dateTimestamp`) so the next request can use them.
+
+## Screenshots
+
+Available sessions for a date, built with the aggregation pipeline and including teacher details:
+
+![Available sessions](docs/screenshots/available-sessions.jpg)
+
+Booking a session that is already booked returns `409 Conflict`:
+
+![Book session conflict](docs/screenshots/book-session-conflict.jpg)
